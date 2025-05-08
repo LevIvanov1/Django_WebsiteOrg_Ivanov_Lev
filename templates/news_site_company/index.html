@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Новости</title>
+</head>
+<body>
+    <h1>Последние новости</h1>
+    <ul>
+        {% for news_item in news %}
+            <li>
+                <h2>{{ news_item.title }}</h2>
+                <p>{{ news_item.content|truncatewords:50 }}</p>
+                <p>Автор: {{ news_item.author }}, Дата: {{ news_item.pub_date }}</p>
+                {% if news_item.image %}
+                    <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="max-width: 200px;">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
