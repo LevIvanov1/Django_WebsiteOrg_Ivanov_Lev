@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Список новостей{% endblock %}
+
+{% block content %}
+    <h1>Список новостей</h1>
+
+    {% if query %}
+        <p>Результаты поиска по запросу: "{{ query }}"</p>
+    {% endif %}
+
+    <form method="get">
+        <label for="sort">Сортировать по:</label>
+        <select name="sort" id="sort">
+            <option value="pub_date">Дате публикации (сначала новые)</option>
+            <option value="-pub_date">Дате публикации (сначала старые)</option>
+            <option value="title">Заголовку (А-Я)</option>
+            <option value="-title">Заголовку (Я-А)</option>
+        </select>
+        <button type="submit">Применить</button>
+    </form>
+
+    <ul>
+        {% for news_item in news %}
+            <li>
+                <a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

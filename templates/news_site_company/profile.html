@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block content %}
+    <h1>Профиль</h1>
+    <p>Имя пользователя: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p><a href="{% url 'password_change' %}">Изменить пароль</a></p>
+
+    <h2>Ваши комментарии:</h2>
+    {% if comments %}
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <strong>К новости:</strong> <a href="{% url 'news_detail' comment.news.id %}">{{ comment.news.title }}</a><br>
+                    {{ comment.text }}<br>
+                    <em>Опубликовано: {{ comment.created_date }}</em>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Вы пока не оставили ни одного комментария.</p>
+    {% endif %}
+
+{% endblock %}
+

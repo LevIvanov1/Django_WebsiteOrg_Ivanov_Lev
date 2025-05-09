@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Новости</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
     <h1>Последние новости</h1>
     <ul>
         {% for news_item in news %}
@@ -17,6 +16,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
-
+{% endblock %}
