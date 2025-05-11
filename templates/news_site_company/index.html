@@ -1,19 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %}Новости{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
-    <h1>Последние новости</h1>
-    <ul>
+
+    <div style="text-align: center;">
+        <h1>Краткая информация о сайте</h1>
+        <p>Наша компания располагается в г. Псков, мы производим только лучшее!</p>
+            <p>Адрес и номер телефона компании пока не раскрывается публично, так как находится в постоянном редактировании
+        </p></p>
+    </div>
+
+    <hr>
+
+    <h2>Последние новости</h2>
+
         {% for news_item in news %}
-            <li>
-                <h2>{{ news_item.title }}</h2>
-                <p>{{ news_item.content|truncatewords:50 }}</p>
+                <div class="news-item">
+                <h3><a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a></h3>
+                <p>{{ news_item.content|truncatechars:100 }}</p>
                 <p>Автор: {{ news_item.author }}, Дата: {{ news_item.pub_date }}</p>
                 {% if news_item.image %}
                     <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="max-width: 200px;">
+                    </div>
                 {% endif %}
-            </li>
         {% endfor %}
-    </ul>
+
 {% endblock %}
+

@@ -22,9 +22,10 @@
 
     <ul>
         {% for news_item in news %}
-            <li>
-                <a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a>
-            </li>
-        {% endfor %}
+       <div class="news-item">
+            <h3><a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a></h3>
+            <p>{{ news_item.content|truncatechars:100 }}</p>
+        </div>
+   {% endfor %}
     </ul>
 {% endblock %}

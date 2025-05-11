@@ -1,33 +1,34 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <nav>
-        <ul>
+<nav>
+    <div class="container">
+        <ul class="left-nav">
             <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'news_list' %}">Новости</a></li>
             <li><a href="{% url 'contact' %}">Контакты</a></li>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Профиль</a></li>
                 <li><a href="{% url 'logout' %}">Выход</a></li>
-            {% if user.is_staff %}
-            <li><a href="{% url 'news_create' %}">Создать новость</a></li>
-            {% endif %}
+                {% if user.is_staff %}
+                    <li><a href="{% url 'news_create' %}">Создать новость</a></li>
+                {% endif %}
             {% else %}
                 <li><a href="{% url 'login' %}">Вход</a></li>
                 <li><a href="{% url 'register' %}">Регистрация</a></li>
             {% endif %}
-            <li>
-                <form action="{% url 'news_search' %}" method="get">
-                    <input type="text" name="q" placeholder="Поиск">
-                    <button type="submit">Найти</button>
-                </form>
-            </li>
         </ul>
-    </nav>
-
+        <form class="right-nav" action="{% url 'news_search' %}" method="get">
+            <input type="text" name="q" placeholder="Поиск">
+            <button type="submit">Найти</button>
+        </form>
+    </div>
+</nav>
     <div class="container">
         {% block content %}{% endblock %}
     </div>

@@ -3,35 +3,45 @@
 {% block title %}{{ news_item.title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ news_item.title }}</h1>
-    <p>Автор: {{ news_item.author }}, Дата: {{ news_item.pub_date }}</p>
-    {% if news_item.image %}
-        <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="max-width: 400px;">
-    {% endif %}
-    <p>{{ news_item.content }}</p>
-    <h2>Добавить комментарий:</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ comment_form.as_p }}
-        <button type="submit">Опубликовать</button>
-    </form>
-    
-    <h2>Комментарии:</h2>
-    {% if news_item.comments.all %}
-        <ul>
-            {% for comment in news_item.comments.all %}
-                <li>
-                    <strong>{{ comment.user.username }}:</strong><br>
-                    {{ comment.text }}<br>
-                    <em>Опубликовано: {{ comment.created_date }}</em>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Пока нет комментариев.</p>
-    {% endif %}
-    {% if user.is_authenticated and user.is_staff %}
-    <a href="{% url 'news_edit' news_item.id %}">Редактировать</a>
-    {% endif %}   
-    
+    <div class="container">
+        <div class="news-detail">
+            <h1>{{ news_item.title }}</h1>
+            <p>Автор: {{ news_item.author }}, Дата: {{ news_item.pub_date }}</p>
+            {% if news_item.image %}
+                <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="max-width: 400px;">
+            {% endif %}
+            <p>{{ news_item.content }}</p>
+        </div>
+
+        <hr>
+
+        <div class="comment-form">
+            <h2>Добавить комментарий:</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit">Опубликовать</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="comments">
+            <h2>Комментарии:</h2>
+            {% if news_item.comments.all %}
+                <ul>
+                    {% for comment in news_item.comments.all %}
+                        
+                            <strong>{{ comment.user.username }}:</strong><br>
+                            {{ comment.text }}<br>
+                            <em>Опубликовано: {{ comment.created_date }}</em>
+                        
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Пока нет комментариев.</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
+

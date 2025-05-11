@@ -1,0 +1,114 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif, sans-serif;
+    margin: 5;
+    padding: 0;
+    background-color: #cff0ff;
+    color: #000000;
+}
+
+
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+nav {
+    background: #363114;
+    color: #ffffff;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: start;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+nav li {
+    display: inline-flex;
+    margin: 0 15px;
+    font-style: initial;
+}
+
+nav a {
+    color: #c4b10e;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #a6ff00;
+}
+
+h1, h2 {
+    color: #700a0a;
+    margin-top: 20px;
+}
+
+ .news-item {
+        background: #d4fcff;
+        padding: 10px;
+        margin-bottom: 0;
+        border-top: 2px solid #000000;
+    }
+
+.news-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+form[method="get"] {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+form[method="get"] input[type="text"] {
+    padding: 5px;
+    border: 2px solid #d9ff00;
+}
+
+form[method="get"] button {
+    padding: 5px 10px;
+    background: #fcfcfc;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-info {
+    background: #d4fcff;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #000000;
+}
+
+.news-detail {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.comment-form {
+    background: #d4fcff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.comments {
+    background: #d4fcff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
