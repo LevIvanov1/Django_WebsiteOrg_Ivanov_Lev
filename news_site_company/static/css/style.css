@@ -2,11 +2,21 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif, sans-serif;
     margin: 5;
     padding: 0;
-    background-color: #cff0ff;
+    background-color: #cff0ff; 
     color: #000000;
+    /* background-image: url('news_images/orig.jpg'); */
 }
 
+nav .logo {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ca12a2;
+}
 
+nav .logo a {
+    text-decoration: none;
+    color: inherit;
+}
 .container {
     width: 95%;
     margin: auto;
@@ -18,6 +28,18 @@ nav {
     padding: 10px 0;
     border-radius: 10px;
 }
+
+
+nav form.right-nav {
+    margin: 0;
+    display: flex;      
+    align-items: center; 
+}
+
+nav form.right-nav span {
+    margin-right: 10px;
+}
+
 
 nav ul {
     padding: 0;

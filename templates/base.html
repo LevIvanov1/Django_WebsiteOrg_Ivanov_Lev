@@ -3,11 +3,15 @@
 <html>
 <head>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 <nav>
     <div class="container">
+       <div class="logo"> 
+       Сайт на Django - Иванов Л.
+    </div>
         <ul class="left-nav">
             <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'news_list' %}">Новости</a></li>
@@ -24,6 +28,7 @@
             {% endif %}
         </ul>
         <form class="right-nav" action="{% url 'news_search' %}" method="get">
+            <span>Привет, {{ user.username }}</span>
             <input type="text" name="q" placeholder="Поиск">
             <button type="submit">Найти</button>
         </form>
