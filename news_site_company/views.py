@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import News, Comment
-from .forms import RegisterForm, NewsForm
+from .forms import RegisterForm, NewsForm,  CommentForm  
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Q
@@ -11,6 +11,7 @@ def index(request):
         news = News.objects.order_by('-pub_date')[:3]
         return render(request, 'news_site_company/index.html', {'news': news})
 
+@login_required
 def news_detail(request, news_id):
     news_item = get_object_or_404(News, pk=news_id)
     if request.method == 'POST':

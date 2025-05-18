@@ -15,14 +15,18 @@
 
         <hr>
 
-        <div class="comment-form">
-            <h2>Добавить комментарий:</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ comment_form.as_p }}
-                <button type="submit">Опубликовать</button>
-            </form>
-        </div>
+        {% if user.is_authenticated %}
+            <div class="comment-form">
+                <h2>Добавить комментарий:</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <button type="submit">Опубликовать</button>
+                </form>
+            </div>
+        {% else %}
+            <p>Пожалуйста, <a href="{% url 'login' %}">войдите</a> или <a href="{% url 'register' %}">зарегистрируйтесь</a>, чтобы оставить комментарий.</p>
+        {% endif %}
 
         <hr>
 
@@ -44,4 +48,3 @@
         </div>
     </div>
 {% endblock %}
-

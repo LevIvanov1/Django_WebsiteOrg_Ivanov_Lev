@@ -23,7 +23,7 @@ nav .logo a {
 }
 
 nav {
-    background: #363114;
+    background: #14361c;
     color: #ffffff;
     padding: 10px 0;
     border-radius: 10px;
@@ -67,7 +67,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #a6ff00;
+    color: #aae5f7;
 }
 
 h1, h2 {
