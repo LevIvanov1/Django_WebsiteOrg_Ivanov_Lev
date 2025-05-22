@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif, sans-serif;
     margin: 5;
@@ -7,16 +8,20 @@ body {
     /* background-image: url('news_images/orig.jpg'); */
 }
 
+
 nav .logo {
     font-size: 15px;
     font-weight: bold;
     color: #ca12a2;
 }
 
+
 nav .logo a {
     text-decoration: none;
     color: inherit;
 }
+
+
 .container {
     width: 95%;
     margin: auto;
@@ -29,7 +34,6 @@ nav {
     border-radius: 10px;
 }
 
-
 nav form.right-nav {
     margin: 0;
     display: flex;      
@@ -39,7 +43,6 @@ nav form.right-nav {
 nav form.right-nav span {
     margin-right: 10px;
 }
-
 
 nav ul {
     padding: 0;
@@ -53,10 +56,16 @@ nav .container {
     align-items: center;
 }
 
+.news-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
 
 nav li {
     display: inline-flex;
-    margin: 0 15px;
+    margin: 0 30px;
     font-style: initial;
 }
 
@@ -68,11 +77,15 @@ nav a {
 
 nav a:hover {
     color: #aae5f7;
+    box-shadow: 0 0 5px black;
 }
 
 h1, h2 {
     color: #700a0a;
     margin-top: 20px;
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
 }
 
  .news-item {
@@ -118,6 +131,7 @@ form[method="get"] button {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
+    box-shadow: 0 0 10px black;
 }
 
 .comment-form {
@@ -125,6 +139,7 @@ form[method="get"] button {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
+    box-shadow: 0 0 5px black;
 }
 
 .comments {
@@ -132,5 +147,53 @@ form[method="get"] button {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
+    box-shadow: 0 0 5px black;
 }
 
+.news-list {
+    list-style: none;
+    padding: 0;
+}
+
+.news-list .news-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.news-list .news-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.news-list .news-content {
+    flex: 1;
+}
+
+.news-list .news-actions {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.news-list .btn-edit, .news-list .btn-delete {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-left: 5px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.news-list .btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.news-list .btn-delete {
+    background-color: #f44336;
+    color: white;
+}

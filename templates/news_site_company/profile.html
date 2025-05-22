@@ -6,11 +6,12 @@
 {% block content %}
     <div class="profile-info container">
        <h1>Профиль</h1>
-       <p>Имя пользователя: {{ user.username }}</p>
-    <p>Email: {{ user.email }}</p>
+       <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+    <p><strong>Электронная почта: </strong>{{ user.email }}</p>
     <p><a href="{% url 'password_change' %}">Изменить пароль</a></p>
     </div>
 
+    <div class="profile-info container">
     <h2>Ваши оставленные комментарии к новостям:</h2>
     {% if comments %}
         <ul>
@@ -23,7 +24,7 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>Вы не писали комментарии</p>
+        <p>Вы не писали комментарии</p></div>
     {% endif %}
 
 {% endblock %}

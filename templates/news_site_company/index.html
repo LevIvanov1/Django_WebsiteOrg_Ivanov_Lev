@@ -6,25 +6,21 @@
 
     <div style="text-align: center;">
         <h1>Краткая информация о сайте</h1>
-        <p>Наша компания располагается в г. Псков, мы производим только лучшее!</p>
+        <p>Наша компания "Django" располагается в г. Псков, мы производим только лучшее!</p>
             <p>Адрес и номер телефона компании пока не раскрывается публично, так как находится в постоянном редактировании
         </p></p>
     </div>
 
     <hr>
-
-    <h2>Последние новости</h2>
-
-        {% for news_item in news %}
-                <div class="news-item">
-                <h3><a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a></h3>
-                <p>{{ news_item.content|truncatechars:100 }}</p>
-                <p>Автор: {{ news_item.author }}, Дата: {{ news_item.pub_date }}</p>
-                {% if news_item.image %}
-                    <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="max-width: 200px;">
-                    </div>
-                {% endif %}
-        {% endfor %}
-
+<h2>Последние новости</h2>
+    {% for news_item in news %}
+         <div class="news-container">
+            <h3><a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a></h3>
+            <p>{{ news_item.content|truncatechars:100 }}</p>
+            <p>Автор: {{ news_item.author }}, Дата: {{ news_item.pub_date }}</p>
+             {% if news_item.image %}
+                <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="max-width: 100px;">
+            {% endif %}
+        </div>
+    {% endfor %}
 {% endblock %}
-

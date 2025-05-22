@@ -20,12 +20,24 @@
         <button type="submit">Применить</button>
     </form>
 
-    <ul>
+    <ul class="news-list">
         {% for news_item in news %}
-       <div class="news-item">
-            <h3><a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a></h3>
-            <p>{{ news_item.content|truncatechars:100 }}</p>
-        </div>
-   {% endfor %}
+            <li class="news-item">
+                {% if news_item.image %}
+                    <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" class="news-image">
+                {% endif %}
+                <div class="news-content">
+                    <h3><a href="{% url 'news_detail' news_item.id %}">{{ news_item.title }}</a></h3>
+                    <p>{{ news_item.content|truncatechars:100 }}</p>
+
+                    {% if request.user.is_staff %}
+                        <div class="news-actions">
+                            <a href="{% url 'news_edit' news_item.id %}" class="btn-edit">Редактировать</a>
+                            <a href="{% url 'news_delete' news_item.id %}" class="btn-delete">Удалить</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
     </ul>
 {% endblock %}

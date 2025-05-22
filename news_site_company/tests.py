@@ -8,16 +8,16 @@ class NewsTests(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(username='testuser', password='testpassword')
         self.staff_user = User.objects.create_user(username='staffuser', password='staffpassword', is_staff=True)
-        self.news = News.objects.create(title='Test News', content='Test Content', author='testuser')
+        self.news = News.objects.create(title='Test news', content='Test Content', author='testuser')
 
     def test_news_creation(self):
         self.assertEqual(News.objects.count(), 1)
-        self.assertEqual(self.news.title, 'Test News')
+        self.assertEqual(self.news.title, 'Test news')
 
     def test_news_editing(self):
-        self.news.title = 'Edited News'
+        self.news.title = 'edit News'
         self.news.save()
-        self.assertEqual(News.objects.get(pk=self.news.pk).title, 'Edited News')
+        self.assertEqual(News.objects.get(pk=self.news.pk).title, 'edit News')
 
     def test_news_deletion(self):
         self.news.delete()
@@ -37,6 +37,6 @@ class NewsTests(TestCase):
 
     def test_comment_creation(self):
         self.client.login(username='testuser', password='testpassword')
-        Comment.objects.create(news=self.news, user=self.user, text='Test Comment')
+        Comment.objects.create(news=self.news, user=self.user, text='test comment')
         self.assertEqual(Comment.objects.count(), 1)
-        self.assertEqual(Comment.objects.first().text, 'Test Comment')
+        self.assertEqual(Comment.objects.first().text, 'test comment')

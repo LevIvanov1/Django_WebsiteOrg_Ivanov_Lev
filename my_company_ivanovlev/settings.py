@@ -125,9 +125,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/profile/'
+LOGOUT_REDIRECT_URL = '/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "news_site_company" / "static",
 ]
 
-MEDIA_URL = '/news_images/'
+MEDIA_URL = '/news_media/'

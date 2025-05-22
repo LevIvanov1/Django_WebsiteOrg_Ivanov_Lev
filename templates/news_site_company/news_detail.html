@@ -35,11 +35,11 @@
             {% if news_item.comments.all %}
                 <ul>
                     {% for comment in news_item.comments.all %}
-                        
-                            <strong>{{ comment.user.username }}:</strong><br>
+                        <li>
+                            <strong>{{ comment.user.username }}</strong><br>
                             {{ comment.text }}<br>
                             <em>Опубликовано: {{ comment.created_date }}</em>
-                        
+                        </li>
                     {% endfor %}
                 </ul>
             {% else %}
@@ -48,3 +48,4 @@
         </div>
     </div>
 {% endblock %}
+

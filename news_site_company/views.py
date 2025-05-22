@@ -49,7 +49,7 @@ def register(request):
                 return redirect('index')
         else:
             form = RegisterForm()
-        return render(request, 'news_site_company/register.html', {'form': form})
+        return render(request, 'registration/register.html', {'form': form})
 
 @login_required
 def profile(request):

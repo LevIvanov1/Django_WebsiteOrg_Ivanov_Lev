@@ -4,13 +4,14 @@
 
 {% block content %}
   <div class="container">
-    <h2>Вход</h2>
+    <h2>Войти в аккаунт</h2>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Войти</button>
     </form>
-    <p>Еще не зарегистрированы? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+    <p>Зарегистрируйтесь, чтобы быть в курсе новых новостей нашей компании! По этой ссылке ниже:</p>
+      <p><a href="{% url 'register' %}">Зарегистрироваться</a></p>
   </div>
 {% endblock %}
 

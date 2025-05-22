@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('content', models.TextField()),
                 ('pub_date', models.DateTimeField(auto_now_add=True)),
                 ('author', models.CharField(max_length=100)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='news_images/')),
+                ('image', models.ImageField(blank=True, null=True, upload_to='news_media/')),
             ],
         ),
     ]
